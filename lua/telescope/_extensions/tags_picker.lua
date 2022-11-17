@@ -47,7 +47,8 @@ return require("telescope").register_extension {
           actions.select_default:replace(function()
             actions.close(prompt_bufnr)
             local selection = action_state.get_selected_entry()
-            print(vim.inspect(selection))
+            local picker = action_state.get_current_picker(prompt_bufnr)
+            print(vim.inspect(picker:get_multi_selection()))
             vim.api.nvim_put({ selection[1] }, "", false, true)
           end)
           return true
