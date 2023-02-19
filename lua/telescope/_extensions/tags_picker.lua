@@ -13,7 +13,7 @@ return require("telescope").register_extension {
 
       local get_all_tags = function()
 
-        local handle = io.popen("rg --no-filename '> tags:'")
+        local handle = io.popen("rg --no-filename 'tags: '")
         local result = {}
         for l in handle:lines() do
           for token in string.gmatch(l, "[^%s]+") do
