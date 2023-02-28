@@ -22,7 +22,6 @@ return require("telescope").register_extension {
                     actions.select_default:replace(function()
                       actions.close(prompt_bufnr)
                       local selection = action_state.get_selected_entry()
-                      vim.pretty_print(selection)
                       vim.api.nvim_put({ "'" .. selection[1] .. "'," }, "", false, true)
                     end)
                     return true
