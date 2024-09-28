@@ -11,7 +11,9 @@ M.get_all_tags = function()
 
   local tags = {}
   for l in handle:lines() do
-    for token in string.gmatch(l, "#%w+(_%w+)*") do
+    for token in string.gmatch(l, "#[%w_]+") do
+      -- for token in string.gmatch(l, "#%w+_?%w*") do
+      -- gmatch(l, "#%w+(_%w+)*")
       tags[token] = true
     end
   end
